@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int health = 50;
+    [SerializeField] private int health = 100;
     [SerializeField] private ParticleSystem hitEffect;
     [SerializeField] bool applyCameraShake;
     [SerializeField] AudioClip boomClip;
@@ -13,11 +13,13 @@ public class Health : MonoBehaviour
     CameraShake cameraShake;
     AudioPlayer audioPlayer;
     ScoreKeeper scoreKeeper;
+    LevelManager levelManager;
 
     private void Awake() {
         cameraShake = Camera.main.GetComponent<CameraShake>();   
         audioPlayer = FindObjectOfType<AudioPlayer>(); 
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     public int GetHealth() => health;
@@ -43,6 +45,11 @@ public class Health : MonoBehaviour
             if (! isPlayer)
             {
                 scoreKeeper.ModifyCurrentScore(score);
+            }
+            else 
+            {
+                Debug.Log($"End encountered {isPlayer} {health}");
+                levelManager.LoadGameOver();
             }
             Destroy(gameObject);
         }

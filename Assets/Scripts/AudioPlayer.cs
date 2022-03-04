@@ -8,7 +8,6 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip shootingClip;
     [SerializeField] AudioClip damageClip;
     [SerializeField] [Range(0f, 1f)] float shootingVolume = 0.5f;
-
     public void PlayShootingClip(AudioClip clip)
     {
         PlayClip(clip, shootingVolume);
