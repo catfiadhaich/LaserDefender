@@ -132,8 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4410564fe6ac321498609c793701c8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 100
   hitEffect: {fileID: 2639748466601331007, guid: 37eeb340f72aeaa4d9cc00d7da6663e7, type: 3}
+  applyCameraShake: 1
+  boomClip: {fileID: 8300000, guid: b4f45f01d9fdbf44c989fa1d28562e00, type: 3}
+  isPlayer: 1
+  score: 0
 --- !u!114 &-1853859712519487348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +157,7 @@ MonoBehaviour:
   firingTimeVariance: 0.5
   minFiringRate: 0.1
   useAI: 0
+  shootingClip: {fileID: 8300000, guid: b510272c07a9fa941b156523a4040888, type: 3}
   isShooting: 0
 --- !u!1 &4175376400189468283
 GameObject:

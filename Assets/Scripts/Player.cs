@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float paddingRight;
     [SerializeField] private float paddingTop;
     [SerializeField] private float paddingBottom;
+    [SerializeField] SpriteScroller spriteScroller;
     private Vector2 rawInput;
     private Vector2 minBounds;
     private Vector2 maxBounds;
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour
         newPos.x = Mathf.Clamp(transform.position.x + delta.x, minBounds.x + paddingLeft, maxBounds.x - paddingRight);
         newPos.y = Mathf.Clamp(transform.position.y + delta.y, minBounds.y + paddingBottom, maxBounds.y - paddingTop);
         transform.position = newPos;
+        spriteScroller.setHorizontalMoveSpeed(delta.x);
     }
 
     private void OnMove(InputValue value)

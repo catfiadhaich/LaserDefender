@@ -181,3 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   hitEffect: {fileID: 2639748466601331007, guid: 37eeb340f72aeaa4d9cc00d7da6663e7, type: 3}
+  applyCameraShake: 0
+  boomClip: {fileID: 8300000, guid: e7e3d34021b12ac40a15d425f95def29, type: 3}
+  isPlayer: 0
+  score: 10

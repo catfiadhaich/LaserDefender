@@ -15,11 +15,18 @@ public class Shooter : MonoBehaviour
     [SerializeField] private float minFiringRate = 0.1f;
     [SerializeField] private bool useAI = false;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip shootingClip;
+
     [HideInInspector]
     public bool isShooting;
     
     private Coroutine firingCoroutine;
+    AudioPlayer audioPlayer;
 
+    private void Awake() {
+        audioPlayer = FindObjectOfType<AudioPlayer>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +69,8 @@ public class Shooter : MonoBehaviour
                 rb.velocity = transform.up * projectileSpeed;
             }
             Destroy(instance, projectileLifetime);
+
+            audioPlayer.PlayShootingClip(shootingClip);
         
             yield return new WaitForSeconds(getRandomShotTime());
         }
